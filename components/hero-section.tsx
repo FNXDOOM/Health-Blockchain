@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
 
@@ -58,21 +59,23 @@ export function HeroSection() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-            <Button
-              size="lg"
-              className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700"
-              onClick={() => scrollToSection("onboarding")}
-            >
-              Get My Aarogya Rakshak Passport
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-green-600 text-green-500 hover:bg-green-900/20"
-              onClick={() => scrollToSection("doctor-access")}
-            >
-              Doctor Login Portal
-            </Button>
+            <Link href="/patient/onboarding" passHref>
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700"
+              >
+                Get My Aarogya Rakshak Passport
+              </Button>
+            </Link>
+            <Link href="/doctor/access-portal" passHref>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-green-600 text-green-500 hover:bg-green-900/20"
+              >
+                Doctor Login Portal
+              </Button>
+            </Link>
           </div>
 
           <div className="mt-12 h-8 overflow-hidden">
