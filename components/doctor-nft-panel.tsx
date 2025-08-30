@@ -6,7 +6,16 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { CheckCircle, Filter, Shield, User, X } from "lucide-react"
 
-export function DoctorNftPanel() {
+interface DoctorNFTProps {
+  currentDoctor: {
+    name: string;
+    specialization: string;
+    hospital: string;
+    licenseNumber: string;
+  } | null;
+}
+
+export function DoctorNftPanel({ currentDoctor }: DoctorNFTProps) {
   const auditLogs = [
     {
       id: "audit-001",
@@ -72,8 +81,10 @@ export function DoctorNftPanel() {
                 <User className="h-16 w-16 text-white" />
               </div>
 
-              <h3 className="text-lg font-medium">Dr. Nareah Patel</h3>
-              <p className="text-sm text-muted-foreground mb-4">Cardiologist, MBBS, MD</p>
+              <h3 className="text-lg font-medium">Dr. {currentDoctor?.name || 'Nikhil Kumar'}</h3>
+              <p className="text-sm text-muted-foreground mb-4">
+                {currentDoctor?.specialization || 'Cardiologist'}, MBBS, MD
+              </p>
 
               <div className="w-full space-y-3 mt-2">
                 <div className="flex justify-between text-sm">

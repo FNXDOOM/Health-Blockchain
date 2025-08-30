@@ -74,7 +74,7 @@ export function DoctorAccessPortal() {
       patientDID: "did:ethr:0x7E5F...5Bdf",
       status: "Granted",
       timestamp: "Today, 10:23 AM",
-      doctor: "Dr. Nareah Patel",
+      doctor: "Dr. Nikhil Kumar",
     },
     {
       id: "log-002",
@@ -82,7 +82,7 @@ export function DoctorAccessPortal() {
       patientDID: "did:ethr:0x3A1F...8C7E",
       status: "Pending",
       timestamp: "Today, 09:45 AM",
-      doctor: "Dr. Nareah Patel",
+      doctor: "Dr. Nikhil Kumar",
     },
     {
       id: "log-003",
@@ -90,7 +90,7 @@ export function DoctorAccessPortal() {
       patientDID: "did:ethr:0x9B2D...1F4A",
       status: "Expired",
       timestamp: "Yesterday, 04:12 PM",
-      doctor: "Dr. Nareah Patel",
+      doctor: "Dr. Nikhil Kumar",
     },
     {
       id: "log-004",
@@ -98,7 +98,7 @@ export function DoctorAccessPortal() {
       patientDID: "did:ethr:0x5E7C...9D3B",
       status: "Revoked",
       timestamp: "Yesterday, 11:30 AM",
-      doctor: "Dr. Nareah Patel",
+      doctor: "Dr. Nikhil Kumar",
     },
   ]
 
@@ -123,7 +123,7 @@ export function DoctorAccessPortal() {
             <div className="flex items-center gap-2">
               <div className="flex items-center gap-1 bg-blue-950/30 text-blue-300 px-3 py-1 rounded-full text-xs border border-blue-900/50">
                 <User className="h-3 w-3" />
-                <span>Dr. Nareah Patel</span>
+                <span>Dr. Nikhil Kumar</span>
               </div>
               <div className="flex items-center gap-1 bg-green-950/30 text-green-300 px-3 py-1 rounded-full text-xs border border-green-900/50">
                 <Shield className="h-3 w-3" />

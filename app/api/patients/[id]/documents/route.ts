@@ -1,10 +1,13 @@
 import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
-import { authOptions } from '@/lib/auth';
-import { patientStore } from '@/lib/data/patient-store';
+import { authOptions } from '../../../../../lib/auth';
+import { patientStore } from '../../../../../lib/data/patient-store';
 import { mkdir, writeFile } from 'fs/promises';
 import path from 'path';
 import { v4 as uuidv4 } from 'uuid';
+
+// Force dynamic rendering for this route
+export const dynamic = 'force-dynamic';
 
 // 10MB file size limit
 const MAX_FILE_SIZE = 10 * 1024 * 1024;

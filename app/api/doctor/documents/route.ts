@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { uploadDoctorDocument, getDoctorDocuments } from '@/lib/doctor-service';
 
+// Force dynamic rendering for this route
+export const dynamic = 'force-dynamic';
+
 // Get all documents for a doctor
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;

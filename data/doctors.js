@@ -8,8 +8,7 @@ export const dummyDoctors = [
     email: "nikhil.kumar@hospital.com",
     specialization: "Cardiologist",
     hospital: "City General Hospital"
-  },
-  // Add more doctors as needed
+  }
 ];
 
 export const verifyDoctor = (did, licenseNumber) => {

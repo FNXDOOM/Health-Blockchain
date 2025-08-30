@@ -1,13 +1,10 @@
+'use client';
+
 import React from 'react';
 import RecordViewer from '@/components/patient/record-viewer';
 import FileUpload from '@/components/patient/file-upload';
 import { BreadcrumbNavigation } from '@/components/breadcrumb-navigation';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-
-export const metadata = {
-  title: 'Medical Records | HealthX Passport',
-  description: 'View and manage your blockchain-secured medical records',
-};
 
 export default function PatientRecordsPage() {
   // In a real application, this would come from authentication context

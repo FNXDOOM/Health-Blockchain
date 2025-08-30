@@ -1,41 +1,33 @@
-import { Writable } from 'stream';
-
-class TerminalLogger extends Writable {
-  private readonly startTime: number;
-  private readonly serviceName: string;
-
-  constructor(serviceName: string) {
-    super({ objectMode: true });
-    this.startTime = Date.now();
-    this.serviceName = serviceName;
-  }
-
-  _write(chunk: any, encoding: BufferEncoding, callback: (error?: Error | null) => void) {
-    const timestamp = new Date().toISOString();
-    const uptime = ((Date.now() - this.startTime) / 1000).toFixed(2);
-    
-    const message = typeof chunk === 'object' 
-      ? JSON.stringify(chunk, null, 2)
-      : String(chunk);
-    
-    process.stdout.write(`[${timestamp}] [${this.serviceName}] [${uptime}s] ${message}\n`);
-    callback();
-  }
+// Simple logger that works in both Node.js and browser environments
+function createLogger(serviceName: string) {
+  return {
+    log: (action: string, data?: any) => {
+      const timestamp = new Date().toISOString();
+      const message = {
+        timestamp,
+        service: serviceName,
+        action,
+        ...(data && { data })
+      };
+      
+      if (typeof window !== 'undefined') {
+        // Browser environment
+        console.log(`[${serviceName}] ${action}`, data || '');
+      } else {
+        // Node.js environment
+        console.log(`[${timestamp}] [${serviceName}] ${action}`, data ? JSON.stringify(data, null, 2) : '');
+      }
+    }
+  };
 }
 
-export const fabricLogger = new TerminalLogger('FABRIC');
-export const ipfsLogger = new TerminalLogger('IPFS');
+export const fabricLogger = createLogger('FABRIC');
+export const ipfsLogger = createLogger('IPFS');
 
 export function logFabric(action: string, data?: any) {
-  fabricLogger.write({
-    action,
-    ...(data && { data })
-  });
+  fabricLogger.log(action, data);
 }
 
 export function logIPFS(action: string, data?: any) {
-  ipfsLogger.write({
-    action,
-    ...(data && { data })
-  });
+  ipfsLogger.log(action, data);
 }

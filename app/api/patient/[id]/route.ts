@@ -3,6 +3,9 @@ import { supabase } from '@/lib/supabase';
 import { fabricClient } from '@/lib/fabric-client';
 import { Patient, PatientRecordUpdate } from '@/types/patient';
 
+// Force dynamic rendering for this route
+export const dynamic = 'force-dynamic';
+
 // GET /api/patient/[id]
 export async function GET(
   request: Request,

@@ -22,8 +22,8 @@ export function HealthPassportDashboard() {
     {
       id: "rec-001",
       type: "Prescription",
-      doctor: "Dr. Nareah Patel",
-      hospital: "Apollo Hospitals",
+      doctor: "Dr. Nikhil Kumar",
+      hospital: "City General Hospital",
       date: "15 May 2023",
       hash: "0x7a9c...3f21",
       verified: true,

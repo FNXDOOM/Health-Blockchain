@@ -4,6 +4,9 @@ import { fabricService } from '@/lib/fabric-service';
 import { Patient, PatientRecordUpdate } from '@/types/patient';
 import { v4 as uuidv4 } from 'uuid';
 
+// Force dynamic rendering for this route
+export const dynamic = 'force-dynamic';
+
 // POST /api/patient - Create a new patient record
 export async function POST(request: Request) {
   try {

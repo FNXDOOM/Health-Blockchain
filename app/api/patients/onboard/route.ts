@@ -1,5 +1,8 @@
 import { NextResponse } from 'next/server';
-import { patientStore } from '@/lib/data/patient-store';
+import { patientStore } from '../../../../lib/data/patient-store';
+
+// Force dynamic rendering for this route
+export const dynamic = 'force-dynamic';
 
 export async function POST(request: Request) {
   try {

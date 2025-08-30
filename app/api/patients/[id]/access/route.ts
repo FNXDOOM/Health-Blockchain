@@ -1,7 +1,10 @@
 import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
-import { authOptions } from '@/lib/auth';
-import { patientStore } from '@/lib/data/patient-store';
+import { authOptions } from '../../../../../lib/auth';
+import { patientStore } from '../../../../../lib/data/patient-store';
+
+// Force dynamic rendering for this route
+export const dynamic = 'force-dynamic';
 
 export async function POST(
   request: Request,

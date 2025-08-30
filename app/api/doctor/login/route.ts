@@ -1,5 +1,8 @@
 import { NextResponse } from 'next/server';
-import { verifyDoctor } from '@/lib/doctor-service';
+import { verifyDoctor, updateDoctorActivity } from '@/lib/doctor-service';
+
+// Force dynamic rendering for this route
+export const dynamic = 'force-dynamic';
 
 export async function POST(request: Request) {
   try {
@@ -22,7 +25,13 @@ export async function POST(request: Request) {
     }
 
     // Update last active timestamp
-    await updateDoctorActivity(did);
+    await updateDoctorActivity({
+      id: `activity_${Date.now()}`,
+      doctorId: did,
+      action: 'LOGIN',
+      details: { timestamp: new Date().toISOString() },
+      timestamp: new Date().toISOString()
+    });
 
     return NextResponse.json(doctor);
   } catch (error) {

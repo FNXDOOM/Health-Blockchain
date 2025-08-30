@@ -2,6 +2,9 @@ import { NextRequest } from 'next/server';
 import { EventStreamResponse, EventStream } from '@/lib/event-stream';
 import { getDoctorActivity } from '@/lib/doctor-service';
 
+// Force dynamic rendering for this route
+export const dynamic = 'force-dynamic';
+
 // Store active connections
 const connections = new Map<string, EventStream>();
 
